@@ -6,7 +6,6 @@ require 'sessao.php';
 require 'base/con_mysql.php';
 
 ##FUNCOES PHP##
-
 function criaTexto($file, $base, $cabecalho, $texto, $titulo) {
     if (file_exists($file)):
         $file = "{$base}/{$titulo}" . time() . ".txt";
