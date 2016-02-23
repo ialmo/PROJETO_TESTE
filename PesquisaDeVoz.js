@@ -9,14 +9,8 @@
     <?php
         //VARIAVEL BOTAO PESQUISAR
         //ATUALIZA A PAGINA
-        $botaoPesquisar = "<hr><button style='
-                                    padding:10px;
-        						    font-family:sans;
-        						    font-size:1em;
-        						    color:#FFF;
-        						    background:#000;
-        						    border-radius:10px;'						                    ' 
-						    onclick='javascript:location.reload()'> Pesquisar novamente </button>";
+        $botaoPesquisar = "<hr><button style='padding:10px;font-family:sans;font-size:1em;color:#FFF;background:#000;border-radius:10px;'
+        onclick='javascript:location.reload()'> Pesquisar novamente </button>";
     ?>
 		<p id="ola">Fale para pesquisar</p>
 		<hr>
