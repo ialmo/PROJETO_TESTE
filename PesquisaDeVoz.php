@@ -11,21 +11,27 @@
         //ATUALIZA A PAGINA
         $botaoPesquisar = "
         <hr>
-        <button style='padding:10px;font-family:sans;font-size:1em;color:#FFF;background:#000;border-radius:10px;' 
-        onclick='javascript:location.reload()'> Pesquisar novamente </button>";
+        <button style='
+	        padding:15px;
+	        font-family:sans;
+	        font-size:1em;
+	        color:#FFF;
+	        background:#000;
+	        border-radius:10px;'
+	onclick='javascript:location.reload()'> Pesquisar novamente </button>";
     ?>
-		<p id="ola">Fale para pesquisar</p>
-		<hr>
-		<p>Palavras disponíveis:</p>
-		<ul>
-		    <li>tecnologia</li>
-		    <li>artigos</li>
-		    <li>notícias</li>
-		</ul>
-		<br>
-		<div id="transcription"></div>
- 
-		<button id="rect" style="display:none">Fale para pesquisar:</button>
+	<p id="ola">Fale para pesquisar</p>
+	<hr>
+	<p>Palavras disponíveis:</p>
+	<ul>
+	    <li>tecnologia</li>
+	    <li>artigos</li>
+	    <li>notícias</li>
+	</ul>
+	<br>
+	<div id="transcription"></div>
+	
+	<button id="rect" style="display:none">Fale para pesquisar:</button>
 		<?php
 			if(isset($_GET['q'])){
 				$q = $_GET['q'];
@@ -67,43 +73,43 @@
 				}
 			}
 		?>
-    <script type="text/javascript">
-    // Test browser support
-      window.SpeechRecognition = window.SpeechRecognition       ||
-                                 window.webkitSpeechRecognition ||
-                                 null;
- 
-		//caso não suporte esta API DE VOZ                              
-		if (window.SpeechRecognition == null) {
-		    if(!window.chrome || window.opr || opr.addons){
-	    	    document.getElementById('ola').innerHTML = 'Desculpe o seu navegador não suporta a API de pesquisa de voz'+'<br>'+'Por favor ume o Chrome na versão mais atual!';
-		    }
-        }else {
-        	var input = document.getElementById("input");
-            var recognizer = new window.SpeechRecognition();
-            var transcription = document.getElementById("transcription");
-        	//Para o reconhecedor de voz, não parar de ouvir, mesmo que tenha pausas no usuario
-        	recognizer.continuous = true
-        	recognizer.onresult = function(event){
-        		transcription.textContent = "";
-        		for (var i = event.resultIndex; i < event.results.length; i++) {
-        			if(event.results[i].isFinal){
-        				var qr = transcription.textContent = event.results[i][0].transcript;
-        				window.location.href = "?q=" + qr;
-        			}else{
-		            	transcription.textContent += event.results[i][0].transcript;
-        			}
-        		}
-        	}
-
-        	document.querySelector("#rect").addEventListener("click",function(){
-        		try {
-		            recognizer.start();
-		          } catch(ex) {
-		          	alert("error: "+ex.message);
-		          }
-        	});
-        }
-    </script>
+	    <script type="text/javascript">
+	    // Test browser support
+	      window.SpeechRecognition = window.SpeechRecognition       ||
+	                                 window.webkitSpeechRecognition ||
+	                                 null;
+	 
+			//caso não suporte esta API DE VOZ                              
+			if (window.SpeechRecognition == null) {
+			    if(!window.chrome || window.opr || opr.addons){
+		    	    document.getElementById('ola').innerHTML = 'Desculpe o seu navegador não suporta a API de pesquisa de voz'+'<br>'+'Por favor ume o Chrome na versão mais atual!';
+			    }
+	        }else {
+	        	var input = document.getElementById("input");
+	            var recognizer = new window.SpeechRecognition();
+	            var transcription = document.getElementById("transcription");
+	        	//Para o reconhecedor de voz, não parar de ouvir, mesmo que tenha pausas no usuario
+	        	recognizer.continuous = true
+	        	recognizer.onresult = function(event){
+	        		transcription.textContent = "";
+	        		for (var i = event.resultIndex; i < event.results.length; i++) {
+	        			if(event.results[i].isFinal){
+	        				var qr = transcription.textContent = event.results[i][0].transcript;
+	        				window.location.href = "?q=" + qr;
+	        			}else{
+			            	transcription.textContent += event.results[i][0].transcript;
+	        			}
+	        		}
+	        	}
+	
+	        	document.querySelector("#rect").addEventListener("click",function(){
+	        		try {
+			            recognizer.start();
+			          } catch(ex) {
+			          	alert("error: "+ex.message);
+			          }
+	        	});
+	        }
+	    </script>
 </body>
 </html>
