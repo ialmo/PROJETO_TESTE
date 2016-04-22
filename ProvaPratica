@@ -88,25 +88,26 @@ namespace LeonardoCerqueira_315115982
             for (;capacidade > 0; capacidade--)
             {
                 Console.WriteLine("Informe a idade");
-	            idade = Int32.Parse(Console.ReadLine());
-	            Console.WriteLine("Avalie o filme como A, B, C, D ou E");
-	            opiniao = Convert.ToChar(Console.ReadLine().ToUpper());
+	        idade = Int32.Parse(Console.ReadLine());
+	        Console.WriteLine("Avalie o filme como A, B, C, D ou E");
+            	opiniao = Convert.ToChar(Console.ReadLine().ToUpper());
 	            
                 if (opiniao == 'A') 
                 {
-                    totalOtimas += 1;
+            		totalOtimas += 1;
                 }
-	            else if (opiniao == 'D')
-	            {
-		            contIdadeRuin  += 1;
-		            mediaIdadeRuin += idade;
-	            }
-	            else if (opiniao == 'E') 
-	            {
-		            contRespPess += 1;
-		            if (idade > maiorIdade) maiorIdade = idade;
-	            }
-                
+		
+		else if (opiniao == 'D')
+		{
+			contIdadeRuin  += 1;
+			mediaIdadeRuin += idade;
+		}
+		
+		else if (opiniao == 'E') 
+		{
+			contRespPess += 1;
+			if (idade > maiorIdade) maiorIdade = idade;
+		}
             }
 
             double porcResp = (double)contRespPess / (double)total * 100;
@@ -133,14 +134,12 @@ namespace LeonardoCerqueira_315115982
             Console.WriteLine("Questão 1, 2 ou 3 (qualquer outro número para sair)");
             int op = Int32.Parse(Console.ReadLine());
             
-            if (op == 1)
-                questao1();
-            else if (op == 2)
-                questao2();
-            else if (op == 3)
-                questao3();
+            if      (op == 1) questao1();
+            else if (op == 2) questao2();
+            else if (op == 3) questao3();
             else
-                return;
+	    	return;
+            
         }
     }
 }
