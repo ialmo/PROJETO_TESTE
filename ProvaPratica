@@ -15,23 +15,22 @@ namespace LeonardoCerqueira_315115982
         static void questao1()
         {
             int p=0, r=0;
-
             Console.WriteLine("Informe 1 ou 0 para P");
+            
             do
             {
                 if (p != 1 && p != 0) Console.WriteLine("somente 0 ou 1 para P");
                 p = Int32.Parse(Console.ReadLine());
             }
             while (p != 1 && p != 0);
-
             Console.WriteLine("Informe 1 ou 0 para R");
+            
             do
             {
                 if (r != 1 && r != 0) Console.WriteLine("somente 0 ou 1 para R");
                 r = Int32.Parse(Console.ReadLine());    
             }
             while (r != 1 && r != 0);
-
             Console.WriteLine(p == 0 ? "C" : r == 0 ? "B" : "A");
 
             Console.ReadKey();
@@ -133,6 +132,7 @@ namespace LeonardoCerqueira_315115982
         {
             Console.WriteLine("Questão 1, 2 ou 3 (qualquer outro número para sair)");
             int op = Int32.Parse(Console.ReadLine());
+            
             if (op == 1)
                 questao1();
             else if (op == 2)
